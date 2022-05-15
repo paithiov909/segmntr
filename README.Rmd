@@ -1,0 +1,30 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+pkgload::load_all()
+```
+
+# segmntr
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+> An R wrapper of [Vaporetto](https://github.com/daac-tools/vaporetto): a fast and lightweight pointwise prediction based tokenizer
+
+```{r}
+segmntr::segment(audubon::polano[5:6])
+```
+
+## License
+
+3-Clause BSD License.

@@ -1,0 +1,19 @@
+TARGET = $(subst 64,x86_64,$(subst 32,i686,$(WIN)))-pc-windows-gnu
+LIBDIR = ./rust/target/$(TARGET)/release
+STATLIB = $(LIBDIR)/libsegmntr.a
+PKG_LIBS = -L$(LIBDIR) -lsegmntr -lws2_32 -ladvapi32 -luserenv -lbcrypt
+VAPORETTO_MODEL = bccwj-suw+unidic
+VAPORETTO_MODEL_PATH = ../$(VAPORETTO_MODEL).model.zst
+
+all: C_clean
+
+$(SHLIB): $(STATLIB)
+
+$(STATLIB):
+	VAPORETTO_MODEL_PATH=$(VAPORETTO_MODEL_PATH) cargo build --target=$(TARGET) --lib --release --manifest-path=./rust/Cargo.toml
+
+C_clean:
+	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS)
+
+clean:
+	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) rust/target
