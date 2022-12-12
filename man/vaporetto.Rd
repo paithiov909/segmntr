@@ -4,7 +4,7 @@
 \alias{vaporetto}
 \title{Internal wrapper of vaporetto}
 \usage{
-vaporetto(x)
+vaporetto(x, model)
 }
 \description{
 Internal wrapper of vaporetto

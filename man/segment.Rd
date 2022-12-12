@@ -4,10 +4,12 @@
 \alias{segment}
 \title{Segment sentences into tokens}
 \usage{
-segment(sentence)
+segment(sentence, model = NULL)
 }
 \arguments{
 \item{sentence}{character vector.}
+
+\item{model}{path to a model file if you have.}
 }
 \value{
 a list.

@@ -5,8 +5,9 @@ edition = '2021'
 
 [lib]
 crate-type = [ 'staticlib' ]
+name = 'segmntr'
 
 [dependencies]
 extendr-api = '*'
-vaporetto = '*'
-ruzstd = '*'
+vaporetto = '0.6.1'
+zstd = '0.12'

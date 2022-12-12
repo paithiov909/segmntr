@@ -1,26 +1,28 @@
 use extendr_api::prelude::*;
 
-use std::io::{Cursor, Read};
+use std::fs::File;
 use vaporetto::{Model, Predictor, Sentence};
 
 /// Internal wrapper of vaporetto
 /// @keywords internal
 #[extendr]
-fn vaporetto(x: Vec<String>) -> Robj {
-    let mut f = Cursor::new(include_bytes!(env!("VAPORETTO_MODEL_PATH")));
-    let mut decoder = ruzstd::StreamingDecoder::new(&mut f).unwrap();
-    let mut buff = vec![];
-    decoder.read_to_end(&mut buff).unwrap();
-    let model = Model::read(&mut buff.as_slice()).unwrap();
-    let predictor = Predictor::new(model, false).unwrap();
+fn vaporetto(x: Vec<String>, model: String) -> Robj {
+
+    let f = zstd::Decoder::new(File::open(model).unwrap()).unwrap();
+    let model = Model::read(f).unwrap();
+    let predictor = Predictor::new(model, true).unwrap();
 
     let capacity = x.len();
     let mut tokens: Vec<_> = Vec::with_capacity(capacity);
 
+    let mut s = Sentence::default();
+
     for (_, text) in x.iter().enumerate() {
-      let s = Sentence::from_raw(text.as_str()).unwrap();
-      let s = predictor.predict(s);
-      let v = s.to_tokenized_vec().unwrap().iter().map(|t| t.surface).collect::<Vec<_>>();
+      let mut v = String::new();
+      s.update_raw(text.as_str()).unwrap();
+      predictor.predict(&mut s);
+      s.fill_tags();
+      s.write_tokenized_text(&mut v);
       tokens.push(r!(v));
     }
     return r!(tokens);

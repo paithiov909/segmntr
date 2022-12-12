@@ -10,5 +10,5 @@ NULL
 
 #' Internal wrapper of vaporetto
 #' @keywords internal
-vaporetto <- function(x) .Call(wrap__vaporetto, x)
+vaporetto <- function(x, model) .Call(wrap__vaporetto, x, model)
 
