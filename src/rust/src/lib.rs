@@ -16,13 +16,14 @@ fn vaporetto(x: Vec<String>, model: String) -> Robj {
     let mut tokens: Vec<_> = Vec::with_capacity(capacity);
 
     let mut s = Sentence::default();
+    let mut buf  = String::new();
 
     for (_, text) in x.iter().enumerate() {
-      let mut v = String::new();
       s.update_raw(text.as_str()).unwrap();
       predictor.predict(&mut s);
       s.fill_tags();
-      s.write_tokenized_text(&mut v);
+      s.write_tokenized_text(&mut buf);
+      let v: Vec<&str> = buf.split_whitespace().collect();
       tokens.push(r!(v));
     }
     return r!(tokens);

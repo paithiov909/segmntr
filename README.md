@@ -4,6 +4,9 @@
 # segmntr
 
 <!-- badges: start -->
+
+[![segmntr status
+badge](https://paithiov909.r-universe.dev/badges/segmntr)](https://paithiov909.r-universe.dev)
 <!-- badges: end -->
 
 An R wrapper of [Vaporetto](https://github.com/daac-tools/vaporetto): a
@@ -11,11 +14,11 @@ fast and lightweight pointwise prediction based tokenizer
 
 ``` r
 segmntr::segment(audubon::polano[4:5])
-#> [[1]]
+#> $`1`
 #> [1] "宮沢/名詞-固有名詞-人名-姓/ミヤザワ" "賢治/名詞-固有名詞-人名-名/ケンジ"  
 #> [3] "訳述"                               
 #> 
-#> [[2]]
+#> $`2`
 #>  [1] "その/連体詞/ソノ"                   "ころ/名詞-普通名詞-副詞可能/コロ"  
 #>  [3] "わたくし/代名詞/ワタクシ"           "は/助詞-係助詞/ワ"                 
 #>  [5] "、/補助記号-読点"                   "モリー"                            
