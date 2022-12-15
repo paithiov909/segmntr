@@ -26,6 +26,7 @@ fn vaporetto(x: Vec<String>, model: String) -> Robj {
       let v: Vec<&str> = buf.split_whitespace().collect();
       tokens.push(r!(v));
     }
+
     return r!(tokens);
 }
 
