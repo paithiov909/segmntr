@@ -12,6 +12,8 @@ Description: An R wrapper of 'Vaporetto', a fast and lightweight pointwise
 License: BSD_3_clause + file LICENSE
 URL: https://github.com/paithiov909/segmntr
 BugReports: https://github.com/paithiov909/segmntr/issues
+Depends: 
+    R (>= 4.2)
 Suggests:
     rextendr
 Encoding: UTF-8
