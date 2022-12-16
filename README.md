@@ -12,6 +12,14 @@ badge](https://paithiov909.r-universe.dev/badges/segmntr)](https://paithiov909.r
 An R wrapper of [Vaporetto](https://github.com/daac-tools/vaporetto): a
 fast and lightweight pointwise prediction based tokenizer
 
+## Installation
+
+``` r
+install.packages("segmntr" repos = "https://paithiov909.r-universe.dev")
+```
+
+## Usage
+
 ``` r
 segmntr::segment(audubon::polano[4:5])
 #> $`1`
