@@ -4,20 +4,11 @@
 # segmntr
 
 <!-- badges: start -->
-
-[![segmntr status
-badge](https://paithiov909.r-universe.dev/badges/segmntr)](https://paithiov909.r-universe.dev)
 <!-- badges: end -->
 
 An R wrapper of [Vaporetto](https://github.com/daac-tools/vaporetto)
 powered by [extendr](https://github.com/extendr/extendr): a fast and
 lightweight pointwise prediction based tokenizer.
-
-## Installation
-
-``` r
-install.packages("segmntr" repos = "https://paithiov909.r-universe.dev")
-```
 
 ## Usage
 
